@@ -17,7 +17,10 @@ class Welcome extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['v3'] = 1;
+		$data['_script_'] = 'script';
+		$data['_section_'] = 'welcome_message';
+		$this->load->view('_layout_', $data);
 	}
 
 	public function res_data()
@@ -32,5 +35,13 @@ class Welcome extends CI_Controller
 //		echo json_encode($dt);
 
 		echo json_encode($persons);
+	}
+
+	public function count_app()
+	{
+		$data['v3'] = 0;
+		$data['_script_'] = 'vue/app/script';
+		$data['_section_'] = 'vue/app/index';
+		$this->load->view('_layout_', $data);
 	}
 }
